@@ -1,0 +1,23 @@
+{
+  "name": "sample-node-mysql",
+  "version": "1.0.0",
+  "description": "A sample Node REST API for a MySQL Database using SequelizeJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntbandara3/sample-node-mysql.git"
+  },
+  "author": "Nandun Bandara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntbandara3/sample-node-mysql/issues"
+  },
+  "homepage": "https://github.com/ntbandara3/sample-node-mysql#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "sequelize": "^4.22.5"
+  }
+}
