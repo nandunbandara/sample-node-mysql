@@ -4,7 +4,7 @@
   "description": "A sample Node REST API for a MySQL Database using SequelizeJS",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node-modules/.bin/mocha ./*.test.js --timeout 15000 --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,12 @@
     "express": "^4.16.2",
     "mysql2": "^1.4.2",
     "sequelize": "^4.22.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "mocha": "^4.0.1"
   }
 }
