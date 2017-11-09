@@ -4,7 +4,7 @@
   "description": "A sample Node REST API for a MySQL Database using SequelizeJS",
   "main": "server.js",
   "scripts": {
-    "test": "./node-modules/.bin/mocha ./*.test.js --timeout 15000 --compilers js:babel-core/register"
+    "test": "mocha ./*.test.js --timeout 15000 --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
