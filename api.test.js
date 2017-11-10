@@ -20,4 +20,31 @@ describe('API', ()=>{
                 done();
             })
     })
+
+    describe('Actors',()=>{
+        it('should get all the records of actors', (done)=>{
+            chai.request(server)
+                .get('/actors')
+                .end((err,res)=>{
+                    res.should.have.status(200);
+                    res.body.should.not.be.null;
+                    res.body.should.have.property("success").eql(true);
+                    res.body.data.should.be.a("array");
+                    done();
+                })
+        })
+
+        it('should get the actor with actor_id 2', (done)=>{
+            chai.request(server)
+                .get('/actors/2')
+                .end((err,res)=>{
+                    res.should.have.status(200);
+                    res.body.should.not.be.null;
+                    res.body.should.have.property("success").eql(true);
+                    res.body.should.have.property("data");
+                    res.body.data[0].should.have.property("actor_id").eql(2);
+                    done();
+                })
+        })
+    })
 });

@@ -4,7 +4,7 @@
   "description": "A sample Node REST API for a MySQL Database using SequelizeJS",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./*.test.js --timeout 15000"
+    "test": "mocha ./*.test.js --timeout 30000"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   "homepage": "https://github.com/ntbandara3/sample-node-mysql#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
+    "node-mysql": "^0.4.2",
     "sequelize": "^4.22.5"
   },
   "devDependencies": {

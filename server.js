@@ -6,11 +6,41 @@
 const express = require('express');
 const app = express();
 
-const DatabaseConnection = require('./lib/database');
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+    host: 'cyborgs.cf0bzul2pkld.us-west-2.rds.amazonaws.com',
+    user: 'cyb_root',
+    password: 'pass123$',
+    database: 'sakila'
+});
+
+connection.connect();
 
 app.get('/', (req,res)=>{
-    res.status(200).json({ message: "Welcome to the Sample REST API!"});
+    res.status(200).json({ message: "Welcome to the Sample REST API!" });
 });
+
+app.get('/actors', (req,res)=>{
+    connection.query('SELECT * FROM actor', (err,rows, fields)=>{
+        if(err){
+            res.status(500).json({ success: false, message: "Could not retrieve actors!", error:err});
+            return;
+        }
+        res.status(200).json({ success: true, data:rows });
+    });
+});
+
+app.get('/actors/:id', (req,res)=>{
+    let query_string = "SELECT * FROM actor WHERE actor_id = '"+req.params.id+"'";
+    connection.query(query_string, (err,rows, fields)=>{
+        if(err){
+            res.status(500).json({ success: false, message: "Could not retrieve actor!", error:err});
+            return;
+        }
+        res.status(200).json({ success: true, data:rows });
+    });
+})
 
 app.listen(process.env.PORT || 4201, (err)=>{
     if(err){
@@ -19,15 +49,5 @@ app.listen(process.env.PORT || 4201, (err)=>{
         console.log('Server started!');
     }
 });
-
-// let db = new DatabaseConnection();
-
-// let sequelize = db.getConnection();
-
-// sequelize.authenticate().then(()=>{
-//     console.log('Connection has been established!');
-// }).catch(err=>{
-//     console.log('Unable to connect to the database: ',err);
-// });
 
 module.exports = app;
