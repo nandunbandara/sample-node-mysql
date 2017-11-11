@@ -20,6 +20,7 @@ app.get('/actors/:id', ActorController.getActorById);
 //Customers
 app.get('/customers', CustomerController.getAllCustomers);
 app.get('/customers/:id', CustomerController.getCustomerById);
+app.get('/customers/:id/address', CustomerController.getAddressByCustomerId);
 
 app.listen(process.env.PORT || 4201, (err)=>{
     if(err){
