@@ -73,6 +73,24 @@ describe('API', ()=>{
                     done();
                 })
         })
+
+        it('should get the address of the customer with customer_id 2', (done)=>{
+            chai.request(server)
+                .get('/customers/2/address')
+                .end((err,res)=>{
+                    res.should.have.status(200);
+                    res.body.should.have.property("success").eql(true);
+                    res.body.should.have.property("data");
+                    res.body.data.should.have.lengthOf(1);
+                    res.body.data[0].should.have.property("address").eql("1121 Loja Avenue");
+                    res.body.data[0].should.have.property("address2").eql("");
+                    res.body.data[0].should.have.property("district").eql("California");
+                    res.body.data[0].should.have.property("city").eql("San Bernardino");
+                    res.body.data[0].should.have.property("country").eql("United States");
+                    res.body.data[0].should.have.property("postal_code").eql("17886");
+                    done();
+                })
+        })
     })
 
 
