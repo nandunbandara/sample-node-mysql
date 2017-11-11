@@ -47,4 +47,33 @@ describe('API', ()=>{
                 })
         })
     })
+
+    describe('Customers',()=>{
+        it('should get all the records of customers', (done)=>{
+            chai.request(server)
+                .get('/customers')
+                .end((err,res)=>{
+                    res.should.have.status(200);
+                    res.body.should.not.be.null;
+                    res.body.should.have.property("success").eql(true);
+                    res.body.data.should.be.a("array");
+                    done();
+                })
+        })
+
+        it('should get the customer with customer_id 2', (done)=>{
+            chai.request(server)
+                .get('/customers/2')
+                .end((err,res)=>{
+                    res.should.have.status(200);
+                    res.body.should.not.be.null;
+                    res.body.should.have.property("success").eql(true);
+                    res.body.should.have.property("data");
+                    res.body.data[0].should.have.property("customer_id").eql(2);
+                    done();
+                })
+        })
+    })
+
+
 });
