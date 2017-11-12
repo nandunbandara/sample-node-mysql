@@ -1,6 +1,6 @@
 {
   "database":{
-    "host":"cyborgs.cf0bzul2pkld.us-west-2.rds.amazonaws.com",
+    "host":"team-cyborgs.cf0bzul2pkld.us-west-2.rds.amazonaws.com",
     "port":"3306",
     "username":"cyb_root",
     "password":"pass123$",

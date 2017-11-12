@@ -19,7 +19,7 @@ describe('API', ()=>{
                 res.should.have.status(200);
                 done();
             })
-    })
+    });
 
     describe('Actors',()=>{
         it('should get all the records of actors', (done)=>{
@@ -32,7 +32,7 @@ describe('API', ()=>{
                     res.body.data.should.be.a("array");
                     done();
                 })
-        })
+        });
 
         it('should get the actor with actor_id 2', (done)=>{
             chai.request(server)
@@ -46,7 +46,7 @@ describe('API', ()=>{
                     done();
                 })
         })
-    })
+    });
 
     describe('Customers',()=>{
         it('should get all the records of customers', (done)=>{
@@ -59,7 +59,7 @@ describe('API', ()=>{
                     res.body.data.should.be.a("array");
                     done();
                 })
-        })
+        });
 
         it('should get the customer with customer_id 2', (done)=>{
             chai.request(server)
@@ -72,7 +72,7 @@ describe('API', ()=>{
                     res.body.data[0].should.have.property("customer_id").eql(2);
                     done();
                 })
-        })
+        });
 
         it('should get the address of the customer with customer_id 2', (done)=>{
             chai.request(server)
