@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ntbandara3/sample-node-mysql#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
     "node-mysql": "^0.4.2",
